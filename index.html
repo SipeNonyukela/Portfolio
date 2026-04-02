@@ -638,24 +638,24 @@ footer strong{color:var(--gold);font-weight:500}
         <div class="form-row">
           <div class="field">
             <label>Full Name</label>
-            <input type="text" placeholder="Jane Smith" required>
+            <input name="name" type="text" placeholder="Jane Smith" required>
           </div>
           <div class="field">
             <label>Company</label>
-            <input type="text" placeholder="Acme Corp">
+            <input name="company" type="text" placeholder="Acme Corp">
           </div>
         </div>
         <div class="field">
           <label>Email Address</label>
-          <input type="email" placeholder="jane@company.com" required>
+          <input name="email" type="email" placeholder="jane@company.com" required>
         </div>
         <div class="field">
           <label>Subject</label>
-          <input type="text" placeholder="Role enquiry / Collaboration">
+          <input name="subject" type="text" placeholder="Role enquiry / Collaboration">
         </div>
         <div class="field">
           <label>Message</label>
-          <textarea placeholder="Tell me about the opportunity or how I can help…" required></textarea>
+          <textarea name="message" placeholder="Tell me about the opportunity or how I can help…" required></textarea>
         </div>
         <div class="form-submit">
           <span class="form-note">Typically responds within 24 hours</span>
@@ -674,15 +674,29 @@ footer strong{color:var(--gold);font-weight:500}
 <script>
 function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
-  btn.textContent = 'Message Sent ✓';
+
+  const form = e.target;
+  const name = form.querySelector('input[name="name"]').value.trim();
+  const company = form.querySelector('input[name="company"]').value.trim();
+  const email = form.querySelector('input[name="email"]').value.trim();
+  const subject = form.querySelector('input[name="subject"]').value.trim() || 'New message from portfolio';
+  const message = form.querySelector('textarea[name="message"]').value.trim();
+
+  const body = `Name: ${name}%0D%0ACompany: ${company}%0D%0AEmail: ${email}%0D%0A%0D%0A${encodeURIComponent(message)}`;
+  const mailtoLink = `mailto:sipe180@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+  window.location.href = mailtoLink;
+
+  const btn = form.querySelector('button[type="submit"]');
+  btn.textContent = 'Message Ready in Email App ✓';
   btn.style.background = '#4ade80';
   btn.style.color = '#0f1f3d';
+
   setTimeout(() => {
     btn.textContent = 'Send Message →';
     btn.style.background = '';
     btn.style.color = '';
-    e.target.reset();
+    form.reset();
   }, 3000);
 }
 
