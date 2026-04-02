@@ -621,11 +621,11 @@ footer strong{color:var(--gold);font-weight:500}
             </div>
             <span class="contact-arrow">→</span>
           </a>
-          <a href="https://wa.me/27815380701" target="_blank" class="contact-row">
+          <a href="https://wa.me/" target="_blank" class="contact-row">
             <div class="contact-row-left">
               <div class="contact-icon">wa</div>
               <div>
-                <div class="contact-detail">+27815380701</div>
+                <div class="contact-detail">Whatsapp Me</div>
                 <div class="contact-sub-detail">WhatsApp</div>
               </div>
             </div>
@@ -634,7 +634,9 @@ footer strong{color:var(--gold);font-weight:500}
         </div>
       </div>
 
-      <form class="form" onsubmit="handleSubmit(event)">
+      <form class="form" action="https://formspree.io/f/mlgollpz" method="POST" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="_next" value="https://your-vercel-site.vercel.app/thank-you" />
+        <input type="hidden" name="_subject" value="New message from portfolio" />
         <div class="form-row">
           <div class="field">
             <label>Full Name</label>
@@ -673,33 +675,16 @@ footer strong{color:var(--gold);font-weight:500}
 
 <script>
 function handleSubmit(e) {
-  e.preventDefault();
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
 
-  const form = e.target;
-  const name = form.querySelector('input[name="name"]').value.trim();
-  const company = form.querySelector('input[name="company"]').value.trim();
-  const email = form.querySelector('input[name="email"]').value.trim();
-  const subject = form.querySelector('input[name="subject"]').value.trim() || 'New message from portfolio';
-  const message = form.querySelector('textarea[name="message"]').value.trim();
-
-  const body = `Name: ${name}%0D%0ACompany: ${company}%0D%0AEmail: ${email}%0D%0A%0D%0A${encodeURIComponent(message)}`;
-  const mailtoLink = `mailto:sipe180@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-
-  window.location.href = mailtoLink;
-
-  const btn = form.querySelector('button[type="submit"]');
-  btn.textContent = 'Message Ready in Email App ✓';
-  btn.style.background = '#4ade80';
-  btn.style.color = '#0f1f3d';
-
+  // Let the form submit normally to Formspree
   setTimeout(() => {
     btn.textContent = 'Send Message →';
-    btn.style.background = '';
-    btn.style.color = '';
-    form.reset();
-  }, 3000);
+    btn.disabled = false;
+  }, 5000); // Reset after 5 seconds in case of error
 }
-
 </script>
 
 </body>
