@@ -4,8 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sipe Nonyukela — Network Engineer & Systems Administrator</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/playfair-400.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/inter-300.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/inter-400.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/inter-500.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/inter-600.woff2') format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/playfair-400.woff2') format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/playfair-500.woff2') format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/playfair-600.woff2') format('woff2')}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
@@ -578,7 +587,7 @@ footer strong{color:var(--gold);font-weight:500}
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTSNT -->
 <section id="contact">
   <div class="section-inner">
     <div class="section-header">
@@ -591,17 +600,17 @@ footer strong{color:var(--gold);font-weight:500}
         <div class="contact-sub">Whether you're hiring, collaborating, or simply want to connect — feel free to reach out. Based in Cape Town, South Africa and open to both local and remote opportunities.</div>
 
         <div class="contact-info">
-          <a href="mailto:sipe180@gmail.com" class="contact-row">
+          <a href="/cdn-cgi/l/email-protection#7e0d170e1b50101110070b151b121f3e1b131f1712501d1113" class="contact-row">
             <div class="contact-row-left">
               <div class="contact-icon">✉</div>
               <div>
-                <div class="contact-detail">sipe180@gmail.com</div>
+                <div class="contact-detail"><span class="__cf_email__" data-cfemail="e6958f9683c88889889f938d838a87a6838b878f8ac885898b">[email&#160;protected]</span></div>
                 <div class="contact-sub-detail">Preferred contact method</div>
               </div>
             </div>
             <span class="contact-arrow">→</span>
           </a>
-          <a href="https://www.linkedin.com/in/sipe-nonyukela-97a0036b/" target="_blank" class="contact-row">
+          <a href="https://linkedin.com/in/sipe-nonyukela" target="_blank" class="contact-row">
             <div class="contact-row-left">
               <div class="contact-icon">in</div>
               <div>
@@ -611,7 +620,7 @@ footer strong{color:var(--gold);font-weight:500}
             </div>
             <span class="contact-arrow">→</span>
           </a>
-          <a href="https://github.com/SipeNonyukela" target="_blank" class="contact-row">
+          <a href="https://github.com/sipe-nonyukela" target="_blank" class="contact-row">
             <div class="contact-row-left">
               <div class="contact-icon">gh</div>
               <div>
@@ -621,43 +630,31 @@ footer strong{color:var(--gold);font-weight:500}
             </div>
             <span class="contact-arrow">→</span>
           </a>
-          <a href="https://wa.me/" target="_blank" class="contact-row">
-            <div class="contact-row-left">
-              <div class="contact-icon">wa</div>
-              <div>
-                <div class="contact-detail">Whatsapp Me</div>
-                <div class="contact-sub-detail">WhatsApp</div>
-              </div>
-            </div>
-            <span class="contact-arrow">→</span>
-          </a>
         </div>
       </div>
 
-      <form class="form" action="https://formspree.io/f/mlgollpz" method="POST" onsubmit="handleSubmit(event)">
-        <input type="hidden" name="_next" value="https://your-vercel-site.vercel.app/thank-you" />
-        <input type="hidden" name="_subject" value="New message from portfolio" />
+      <form class="form" onsubmit="handleSubmit(event)">
         <div class="form-row">
           <div class="field">
             <label>Full Name</label>
-            <input name="name" type="text" placeholder="Jane Smith" required>
+            <input type="text" placeholder="Jane Smith" required>
           </div>
           <div class="field">
             <label>Company</label>
-            <input name="company" type="text" placeholder="Acme Corp">
+            <input type="text" placeholder="Acme Corp">
           </div>
         </div>
         <div class="field">
           <label>Email Address</label>
-          <input name="email" type="email" placeholder="jane@company.com" required>
+          <input type="email" placeholder="jane@company.com" required>
         </div>
         <div class="field">
           <label>Subject</label>
-          <input name="subject" type="text" placeholder="Role enquiry / Collaboration">
+          <input type="text" placeholder="Role enquiry / Collaboration">
         </div>
         <div class="field">
           <label>Message</label>
-          <textarea name="message" placeholder="Tell me about the opportunity or how I can help…" required></textarea>
+          <textarea placeholder="Tell me about the opportunity or how I can help…" required></textarea>
         </div>
         <div class="form-submit">
           <span class="form-note">Typically responds within 24 hours</span>
@@ -669,22 +666,25 @@ footer strong{color:var(--gold);font-weight:500}
 </section>
 
 <footer>
-  <span>© 2026 <strong>Sipe Nonyukela</strong> · Network Engineer</span>
+  <span>© 2024 <strong>Sipe Nonyukela</strong> · Network Engineer</span>
   <span>Cape Town, South Africa · Open to Opportunities</span>
 </footer>
 
 <script>
 function handleSubmit(e) {
+  e.preventDefault();
   const btn = e.target.querySelector('button[type="submit"]');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-
-  // Let the form submit normally to Formspree
+  btn.textContent = 'Message Sent ✓';
+  btn.style.background = '#4ade80';
+  btn.style.color = '#0f1f3d';
   setTimeout(() => {
     btn.textContent = 'Send Message →';
-    btn.disabled = false;
-  }, 5000); // Reset after 5 seconds in case of error
+    btn.style.background = '';
+    btn.style.color = '';
+    e.target.reset();
+  }, 3000);
 }
+
 </script>
 
 </body>
